@@ -1,0 +1,10 @@
+#!/bin/sh
+
+BUILD_DIR=$1/marketing
+
+cd $BUILD_DIR
+
+yarn
+yarn run gatsby build
+mv public/* ../public/
+

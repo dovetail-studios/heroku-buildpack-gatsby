@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -d $1/marketing ]; then
+  echo "Marketing Site Build Detected"
+  exit 0
+else
+  exit 1
+fi
+
