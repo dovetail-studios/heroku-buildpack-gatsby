@@ -6,6 +6,11 @@ BUILD_DIR=$1/marketing
 # the file name is the variable name, and the file contents are the variable’s value.
 ENV_DIR=$3
 
+# Heroku has opinions on indentation, let's respect them
+indent() {
+  sed -u 's/^/       /'
+}
+
 # Export env vars from ENV_DIR to environment
 # https://devcenter.heroku.com/articles/buildpack-api
 export_env_dir() {
@@ -20,6 +25,7 @@ export_env_dir() {
     done
   fi
 }
+
 export_env_dir "$ENV_DIR"
 
 cd $BUILD_DIR
@@ -28,3 +34,4 @@ yarn
 yarn run gatsby build
 mv public/* ../public/
 
+echo "Done" | indent
