@@ -29,7 +29,7 @@ export_env_dir() {
 export_env_dir "$ENV_DIR"
 
 # Add version number
-git rev-list --count $(git log -n 1 --pretty=format:"%H") > $1/VERSION_NUMBER
+git log -n 1 --pretty=format:"%h" > $1/VERSION_NUMBER
 
 cd $BUILD_DIR
 
